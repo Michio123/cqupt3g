@@ -98,5 +98,5 @@ docker run -d --name mysql -p 3306:3306 -v /opt/containerd/mysql/conf:/etc/mysql
 
 ## 运行后端程序
 
-docker run --name campus -p 8160:8160 -d campus
+docker run --name campus -p 8160:8160 -d campus:1.1
 
