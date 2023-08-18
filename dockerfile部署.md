@@ -99,13 +99,13 @@ docker run -d --name mysql -p 3306:3306 -v /opt/containerd/mysql/conf:/etc/mysql
 ## 运行后端程序
 
 ```bash
-docker build  -t campus:1.2 .
+docker build  -t campus:1.3 .
 ```
 
 
 
 ```bash
-docker run --name campus -p 8160:8160 -d campus:1.2
+docker run --name campus -p 8160:8160 -d campus:1.3
 ```
 
 
@@ -120,3 +120,18 @@ $$
 J(\theta)=\frac{1}{m} \sum_{i=1}^{m} \exp \left(-y^{(i)} \theta^{T} \phi\left(x^{(i)}\right)\right)
 $$
 
+
+
+
+
+
+
+```java
+mkdir -p /etc/docker
+tee /etc/docker/daemon.json <<-'EOF'
+{"registry-mirrors": ["你个人的阿里云镜像加速器地址"]
+}
+EOF
+systemctl daemon-reload
+systemctl restart docker
+```
